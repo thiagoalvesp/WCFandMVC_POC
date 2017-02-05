@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WCFModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CLIENTE">
+    <Key>
+      <PropertyRef Name="ClienteId" />
+    </Key>
+    <Property Name="ClienteId" Type="Int32" Nullable="false" />
+    <Property Name="Nome" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Sobrenome" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DataCadastro" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ATIVO" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="PRODUTO" Relationship="Self.FK__PRODUTO__Cliente__1273C1CD" FromRole="CLIENTE" ToRole="PRODUTO" />
+  </EntityType>
+  <EntityType Name="PRODUTO">
+    <Key>
+      <PropertyRef Name="ProdutoId" />
+    </Key>
+    <Property Name="ProdutoId" Type="Int32" Nullable="false" />
+    <Property Name="Nome" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Valor" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Disponivel" Type="Boolean" Nullable="false" />
+    <Property Name="ClienteId" Type="Int32" />
+    <NavigationProperty Name="CLIENTE" Relationship="Self.FK__PRODUTO__Cliente__1273C1CD" FromRole="PRODUTO" ToRole="CLIENTE" />
+  </EntityType>
+  <Association Name="FK__PRODUTO__Cliente__1273C1CD">
+    <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="0..1" />
+    <End Role="PRODUTO" Type="Self.PRODUTO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLIENTE">
+        <PropertyRef Name="ClienteId" />
+      </Principal>
+      <Dependent Role="PRODUTO">
+        <PropertyRef Name="ClienteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="WCFEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CLIENTE" EntityType="Self.CLIENTE" />
+    <EntitySet Name="PRODUTO" EntityType="Self.PRODUTO" />
+    <AssociationSet Name="FK__PRODUTO__Cliente__1273C1CD" Association="Self.FK__PRODUTO__Cliente__1273C1CD">
+      <End Role="CLIENTE" EntitySet="CLIENTE" />
+      <End Role="PRODUTO" EntitySet="PRODUTO" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

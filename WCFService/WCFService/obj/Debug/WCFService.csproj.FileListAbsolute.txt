@@ -1,0 +1,10 @@
+C:\Users\thiag\Desktop\WCFService\WCFService\bin\WCFService.dll.config
+C:\Users\thiag\Desktop\WCFService\WCFService\bin\WCFService.dll
+C:\Users\thiag\Desktop\WCFService\WCFService\bin\WCFService.pdb
+C:\Users\thiag\Desktop\WCFService\WCFService\bin\EntityFramework.dll
+C:\Users\thiag\Desktop\WCFService\WCFService\bin\EntityFramework.SqlServer.dll
+C:\Users\thiag\Desktop\WCFService\WCFService\bin\EntityFramework.xml
+C:\Users\thiag\Desktop\WCFService\WCFService\bin\EntityFramework.SqlServer.xml
+C:\Users\thiag\Desktop\WCFService\WCFService\obj\Debug\WCFService.csprojResolveAssemblyReference.cache
+C:\Users\thiag\Desktop\WCFService\WCFService\obj\Debug\WCFService.dll
+C:\Users\thiag\Desktop\WCFService\WCFService\obj\Debug\WCFService.pdb
